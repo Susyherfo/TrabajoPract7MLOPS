@@ -1,0 +1,44 @@
+name: CI — Lint & Tests
+
+on:
+  push:
+    branches: ["**"]          # Corre en cualquier rama
+  pull_request:
+    branches: [main, develop]  # Corre en PRs hacia main o develop
+
+jobs:
+  lint-and-test:
+    name: Lint + Tests
+    runs-on: ubuntu-22.04
+
+    steps:
+      # 1. Checkout del código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Configurar Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Lint con flake8
+      - name: Lint with flake8
+        run: |
+          flake8 app/ scripts/ --max-line-length=100 --statistics
+
+      # 5. Correr tests con pytest
+      - name: Run tests with pytest
+        run: |
+          pytest tests/ -v --tb=short
+        env:
+          # Variables de entorno para tests (sin credenciales reales)
+          AWS_DEFAULT_REGION: us-east-1
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
