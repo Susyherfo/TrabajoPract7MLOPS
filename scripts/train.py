@@ -59,6 +59,7 @@ RANDOM_STATE = int(os.getenv("RANDOM_STATE", "42"))
 # Funciones auxiliares S3
 # ─────────────────────────────────────────────
 
+
 def get_s3_client():
     """Crea y retorna un cliente de S3."""
     return boto3.client(
@@ -222,7 +223,9 @@ def generate_sample_dataset() -> pd.DataFrame:
 # Pipeline principal
 # ─────────────────────────────────────────────
 
+
 def run_training_pipeline(use_local: bool = False):
+    
     """
     Ejecuta el pipeline completo de entrenamiento:
     1. Cargar datos (S3 o local)
