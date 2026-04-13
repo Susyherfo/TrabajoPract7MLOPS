@@ -16,11 +16,6 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-'''
-necesita configurar son las variables de entorno S3_BUCKET_NAME 
-y S3_MODEL_KEY una vez que tenga los permisos de AWS listos
-'''
-
 S3_BUCKET = os.getenv("S3_BUCKET_NAME", "mi-bucket-mlops")
 S3_MODEL_KEY = os.getenv("S3_MODEL_KEY", "models/latest/model.pkl")
 LOCAL_MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "model", "model.pkl")
