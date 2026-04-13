@@ -225,7 +225,7 @@ def generate_sample_dataset() -> pd.DataFrame:
 
 
 def run_training_pipeline(use_local: bool = False):
-    
+
     """
     Ejecuta el pipeline completo de entrenamiento:
     1. Cargar datos (S3 o local)
@@ -293,3 +293,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_training_pipeline(use_local=args.local)
+

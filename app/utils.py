@@ -98,3 +98,4 @@ def reload_model():
     logger.info("Caché del modelo limpiado. Descargando versión más reciente...")
     download_model_from_s3()
     return load_model()
+
