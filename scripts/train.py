@@ -61,6 +61,7 @@ RANDOM_STATE = int(os.getenv("RANDOM_STATE", "42"))
 
 
 def get_s3_client():
+
     """Crea y retorna un cliente de S3."""
     return boto3.client(
         "s3",
@@ -69,6 +70,7 @@ def get_s3_client():
 
 
 def download_dataset_from_s3(bucket: str, key: str) -> pd.DataFrame:
+
     """Descarga un CSV desde S3 y lo retorna como DataFrame."""
     logger.info(f"Descargando dataset desde s3://{bucket}/{key}")
     s3 = get_s3_client()
@@ -79,6 +81,7 @@ def download_dataset_from_s3(bucket: str, key: str) -> pd.DataFrame:
 
 
 def upload_model_to_s3(local_path: str, bucket: str, prefix: str, version: str):
+
     """Sube el modelo local a S3 en dos versiones: versionada y 'latest'."""
     s3 = get_s3_client()
 
@@ -94,6 +97,7 @@ def upload_model_to_s3(local_path: str, bucket: str, prefix: str, version: str):
 
 
 def upload_metrics_to_s3(metrics: dict, bucket: str, prefix: str, version: str):
+    
     """Sube las métricas del entrenamiento a S3 en formato JSON."""
     s3 = get_s3_client()
 

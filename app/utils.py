@@ -24,6 +24,7 @@ _model = None  # Cache en memoria para no recargar en cada request
 
 
 def download_model_from_s3() -> bool:
+    
     """
     Descarga el modelo desde S3 y lo guarda localmente.
     Retorna True si fue exitoso, False si falló.
@@ -41,6 +42,7 @@ def download_model_from_s3() -> bool:
 
 
 def load_model():
+
     """
     Carga el modelo en memoria (con caché).
     Intenta primero desde disco local, si no existe lo descarga de S3.
@@ -66,6 +68,7 @@ def load_model():
 
 
 def predict(features: list) -> dict:
+
     """
     Realiza una predicción dado una lista de features.
 
@@ -89,6 +92,7 @@ def predict(features: list) -> dict:
 
 
 def reload_model():
+
     """
     Fuerza la recarga del modelo desde S3.
     Útil para reflejar un reentrenamiento sin reiniciar el servidor.
