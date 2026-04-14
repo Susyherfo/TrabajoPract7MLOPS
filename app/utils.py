@@ -1,4 +1,4 @@
-﻿"""
+"""
 app/utils.py
 
 Funciones auxiliares para:
