@@ -1,4 +1,4 @@
-﻿"""
+"""
 scripts/train.py
 
 Script de entrenamiento del modelo de ML.
@@ -206,7 +206,7 @@ def run_training_pipeline(use_local: bool = False):
     return metrics
 
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Entrena y versiona el modelo de ML.")
     parser.add_argument(
         "--local",
