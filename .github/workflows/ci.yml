@@ -37,8 +37,8 @@ jobs:
       # 5. Correr tests con pytest
       - name: Run tests with pytest
         run: |
+          ls -la
           pytest tests/ -v --tb=short
         env:
-          # Variables de entorno para tests (sin credenciales reales)
           AWS_DEFAULT_REGION: us-east-1
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
