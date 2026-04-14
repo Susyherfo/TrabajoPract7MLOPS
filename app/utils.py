@@ -77,4 +77,3 @@ def reload_model():
     logger.info("Recargando modelo desde S3...")
     download_model_from_s3()
     return load_model()
-# fin
