@@ -1,4 +1,4 @@
-"""
+﻿"""
 scripts/train.py
 
 Script de entrenamiento del modelo de ML.
@@ -216,4 +216,4 @@ if __name__ == "_main_":
     args = parser.parse_args()
 
     run_training_pipeline(use_local=args.local)
-
+# fin
