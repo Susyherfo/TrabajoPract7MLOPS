@@ -1,9 +1,9 @@
 name: retrain - reentrenamiento del modelo
 
 on:
-  workflow_dispatch: #permite correrlo manualmente desde github
+  workflow_dispatch:
   schedule:
-    - cron: "0 2 * * 1" #todos los lunes a las 2am utc
+    - cron: "0 2 * * 1"
 
 jobs:
   retrain:
