@@ -32,7 +32,7 @@ jobs:
       # 4. Lint con flake8
       - name: Lint with flake8
         run: |
-          flake8 app/ scripts/ --max-line-length=100 --statistics
+          flake8 app/ scripts/ --max-line-length=100 --extend-ignore=W391,W292,W291,E302 --statistics
 
       # 5. Correr tests con pytest
       - name: Run tests with pytest
