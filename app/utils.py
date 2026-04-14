@@ -15,11 +15,11 @@ import joblib
 import numpy as np
 
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 S3_BUCKET = os.getenv("S3_BUCKET_NAME", "mi-bucket-mlops")
 S3_MODEL_KEY = os.getenv("S3_MODEL_KEY", "models/latest/model.pkl")
-LOCAL_MODEL_PATH = os.path.join(os.path.dirname(_file_), "..", "model", "model.pkl")
+LOCAL_MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "model", "model.pkl")
 
 _model = None
 
@@ -77,3 +77,4 @@ def reload_model():
     logger.info("Recargando modelo desde S3...")
     download_model_from_s3()
     return load_model()
+

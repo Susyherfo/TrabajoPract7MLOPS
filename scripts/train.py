@@ -38,13 +38,13 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 S3_BUCKET = os.getenv("S3_BUCKET_NAME", "mi-bucket-mlops")
 S3_DATASET_KEY = os.getenv("S3_DATASET_KEY", "data/dataset.csv")
 S3_MODEL_PREFIX = os.getenv("S3_MODEL_PREFIX", "models/")
-LOCAL_MODEL_PATH = os.path.join(os.path.dirname(_file_), "..", "model", "model.pkl")
-LOCAL_METRICS_PATH = os.path.join(os.path.dirname(_file_), "..", "model", "metrics.json")
+LOCAL_MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "model", "model.pkl")
+LOCAL_METRICS_PATH = os.path.join(os.path.dirname(__file__), "..", "model", "metrics.json")
 
 TARGET_COLUMN = os.getenv("TARGET_COLUMN", "target")
 TEST_SIZE = float(os.getenv("TEST_SIZE", "0.2"))
@@ -206,7 +206,7 @@ def run_training_pipeline(use_local: bool = False):
     return metrics
 
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     parser = argparse.ArgumentParser(description="Entrena y versiona el modelo de ML.")
     parser.add_argument(
         "--local",
@@ -216,3 +216,4 @@ if _name_ == "_main_":
     args = parser.parse_args()
 
     run_training_pipeline(use_local=args.local)
+
